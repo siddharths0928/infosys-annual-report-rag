@@ -41,12 +41,23 @@ I drafted a 12-question test set from the report with AI assistance, checked it 
 | Gemini | top 3 | 11/12 (the 12th was an honest "I don't have that information") |
 | Gemini | top 5 | 12/12 |
 
+**Fresh test (10 new questions drafted with AI assistance, not used while building or tuning the pipeline, plus 2 the report cannot answer)**
+
+| Measure | Result |
+|---|---|
+| Right chunk in top 3 | 5/10 |
+| Right chunk in top 5 | 7/10 |
+| Answers matching | 7/10 |
+| Out-of-scope questions refused correctly | 2/2 |
+
+The scores are lower than on the first set, which I partly tuned against, so this is the more honest number. Two misses were retrieval failures (free cash flow and active clients, which sit in highlight boxes), and the model answered "I don't have that information" instead of guessing. The third was a wording ambiguity: asked about revenue growth, the model gave the rupee increase instead of the 4.7% figure. There were no confident wrong answers.
+
 What I learned: keyword search rescued exact-term questions ("interim dividend", "attrition"), the re-ranker pushed the right chunk higher, and after that the answer model became the bottleneck. The small local model could not match numbers to labels in jumbled PDF tables, and a stronger model fixed most of it.
 
 ## Limitations (please read)
 
-- **Small test set.** 12 questions, written by me, on one report. One question is about 8 percentage points, so treat the scores as indicative, not proof.
-- **Partly tuned.** I increased the context from 3 to 5 chunks after one question failed, so the 12/12 is optimistic. A fresh question set is the honest test.
+- **Small test set.** 12 questions plus 10 fresh ones, all drafted with AI assistance and checked against the report, on a single report. One question is about 8 to 10 percentage points, so treat the scores as indicative, not proof.
+- **Partly tuned.** I increased the context from 3 to 5 chunks after one question failed, so the 12/12 is optimistic. The fresh test above is the more honest number.
 - **Rough auto-check.** The notebook checks whether the expected value appears in the answer. An answer can contain the right value and still be partly wrong, so I also read the answers myself.
 - **Tables.** PDF tables become jumbled text, which is where answers go wrong most often.
 - **Scanned PDFs** are not supported (no OCR).

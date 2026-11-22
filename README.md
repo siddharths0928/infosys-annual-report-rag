@@ -1,5 +1,7 @@
 # Infosys Annual Report Q&A Assistant (RAG)
 
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/siddharths0928/infosys-annual-report-rag/blob/main/rag_annual_report_assistant.ipynb)
+
 Ask questions in plain English about the **Infosys Integrated Annual Report 2023-24** (353 pages) and get an answer together with the **file and page** it came from. If the report doesn't contain the answer, the assistant says so instead of guessing.
 
 Built as a Retrieval-Augmented Generation (RAG) project in a single Google Colab notebook: `rag_annual_report_assistant.ipynb`.

@@ -23,7 +23,7 @@ The notebook also has an optional free local model (`flan-t5-large`) for people 
 
 ## Results
 
-I wrote a 12-question test set from the report and measured each improvement.
+I drafted a 12-question test set from the report with AI assistance, checked it against the report text, and measured each improvement.
 
 **Search quality** (is the right chunk among the top results?)
 
